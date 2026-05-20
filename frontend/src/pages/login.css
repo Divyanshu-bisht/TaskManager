@@ -1,0 +1,259 @@
+/* ── Login Page  ──────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f4f2ee;
+  --surface: #faf9f7;
+  --border: #e8e4dd;
+  --muted: #c4beb4;
+  --text-dim: #9e9890;
+  --text: #4a4640;
+  --text-dark: #2e2b27;
+  --accent: #8a7f72;
+  --accent-hover: #6b6159;
+  --input-bg: #f0ede8;
+  --shadow: 0 2px 24px rgba(100, 90, 75, 0.08);
+  --radius: 12px;
+  --transition: 200ms ease;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--bg);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Card ──────────────────────────────────────────────────────────── */
+
+.login {
+  min-height: 100vh;
+  min-width: 35dvw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: var(--bg);
+  /* subtle texture */
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(200, 190, 175, 0.18) 0%, transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(180, 170, 155, 0.12) 0%, transparent 50%);
+}
+
+.login::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg,
+      transparent,
+      transparent 39px,
+      rgba(180, 170, 155, 0.06) 39px,
+      rgba(180, 170, 155, 0.06) 40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* The form card wrapper — scoped with a wrapper class */
+.login>* {
+  position: relative;
+  z-index: 1;
+}
+
+.loginh2 {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  font-size: clamp(1.85rem, 4.5vw, 2.4rem);
+  color: var(--text-dark);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Eyebrow line above card */
+.login::after {
+  content: none;
+}
+
+/* ── Floating card ─────────────────────────────────────────────────── */
+.loginform {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: clamp(28px, 6vw, 44px) clamp(24px, 7vw, 48px);
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  animation: fadeUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Remove the <br> visual gaps — use gap instead */
+.loginform br {
+  display: none;
+}
+
+/* ── Inputs ────────────────────────────────────────────────────────── */
+.logininput {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--input-bg);
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  margin-bottom: 14px;
+  letter-spacing: 0.01em;
+}
+
+.logininput::placeholder {
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.logininput:focus {
+  background: var(--surface);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(138, 127, 114, 0.12);
+}
+
+.logininput[type="password"] {
+  letter-spacing: 0.08em;
+  /* slight spacing for dots */
+}
+
+.logininput[type="password"]::placeholder {
+  letter-spacing: 0.01em;
+}
+
+/* ── Button ────────────────────────────────────────────────────────── */
+.loginbutton {
+  width: 100%;
+  padding: 13px 20px;
+  margin-top: 6px;
+  background: var(--text-dark);
+  color: var(--bg);
+  border: none;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+.loginbutton:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 4px 16px rgba(80, 70, 60, 0.18);
+  transform: translateY(-1px);
+}
+
+.loginbutton:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ── Footer text ───────────────────────────────────────────────────── */
+.loginp {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  animation: fadeUp 0.5s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.loginlink {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transition);
+}
+
+.loginlink:hover {
+  color: var(--text-dark);
+}
+
+/* ── Responsive ────────────────────────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 600px) {
+  .loginform {
+    max-width: 100%;
+    border-radius: 10px;
+    padding: 28px 24px;
+  }
+
+  .loginh2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Small phone */
+@media (max-width: 380px) {
+  .loginform {
+    padding: 24px 18px;
+    margin-top: 14px;
+  }
+
+  .logininput,
+  .loginbutton {
+    padding: 12px 14px;
+    font-size: 0.88rem;
+  }
+
+  .loginh2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Landscape phone */
+@media (max-height: 500px) and (orientation: landscape) {
+  .login {
+    padding: 16px;
+    justify-content: flex-start;
+    padding-top: 32px;
+  }
+
+  .loginform {
+    padding: 20px 28px;
+    margin-top: 12px;
+  }
+
+  .logininput {
+    margin-bottom: 10px;
+  }
+}
