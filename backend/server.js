@@ -16,7 +16,12 @@ connectDB();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://taskmanager-frontend-hbtv.onrender.com"
+  ]
+}));
 app.use(helmet());
 app.use(morgan("dev"));
 
