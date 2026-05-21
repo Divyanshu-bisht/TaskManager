@@ -8,6 +8,10 @@ const connectDB = require("./config/db");
 
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./swagger");
+const allowedOrigins = [
+  "https://task-management-f.netlify.app",
+  "http://localhost:5173",
+];
 
 dotenv.config();
 
@@ -16,12 +20,13 @@ connectDB();
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://task-management-f.netlify.app/"
-  ]
-}));
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
 app.use(helmet());
 app.use(morgan("dev"));
 
