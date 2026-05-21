@@ -175,22 +175,71 @@ https://taskmanager-4v87.onrender.com/api-docs
 # 📂 Folder Structure
 
 ```bash
-Task-Manager/
+TaskManager/
 │
 ├── backend/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
 │   ├── config/
+│   │   └── db.js
+│   │
+│   ├── controllers/
+│   │   ├── authController.js
+│   │   └── taskController.js
+│   │
+│   ├── middleware/
+│   │   ├── authMiddleware.js
+│   │   ├── roleMiddleware.js
+│   │   └── errorMiddleware.js
+│   │
+│   ├── models/
+│   │   ├── User.js
+│   │   └── Task.js
+│   │
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   └── taskRoutes.js
+│   │
+│   ├── swagger/
+│   │   └── swagger.js
+│   │
+│   ├── .env
+│   ├── package.json
+│   ├── package-lock.json
 │   └── server.js
 │
 ├── frontend/
+│   ├── public/
+│   │   └── _redirects
+│   │
 │   ├── src/
-│   ├── components/
-│   ├── pages/
-│   └── main.jsx
+│   │   ├── components/
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── ProtectedRoute.jsx
+│   │   │   └── TaskCard.jsx
+│   │   │
+│   │   ├── pages/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── Dashboard.jsx
+│   │   │
+│   │   ├── services/
+│   │   │   └── api.js
+│   │   │
+│   │   ├── context/
+│   │   │   └── AuthContext.jsx
+│   │   │
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   │
+│   ├── package.json
+│   ├── package-lock.json
+│   └── vite.config.js
 │
+├── login.png
+├── register.png
+├── dashboard.png
+├── swagger.png
+├── .gitignore
 └── README.md
 ```
 
