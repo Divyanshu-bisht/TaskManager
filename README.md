@@ -97,7 +97,7 @@ A scalable full-stack task management application featuring secure JWT authentic
 # 🌐 Live Demo
 
 ### 🚀 Frontend
-https://taskmanager-frontend-hbtv.onrender.com
+https://task-management-f.netlify.app
 
 ### ⚙️ Backend API
 https://taskmanager-4v87.onrender.com
