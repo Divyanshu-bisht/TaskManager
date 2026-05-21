@@ -204,7 +204,7 @@ Task-Manager/
 https://github.com/Divyanshu-bisht
 
 💼 LinkedIn  
-https://linkedin.com/in/divyanshu-bisht
+https://linkedin.com/in/divyanshubisht
 
 ---
 
